@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude — Motion Reel 2026</title>
+<meta name="description" content="A 15-second motion design showreel rendered entirely from code: canvas, WebGL and a synthesized soundtrack.">
+<style>
+  :root { --ink: #0E0E10; --paper: #F3EFE6; --coral: #FF5B35; }
+  html, body { margin: 0; height: 100%; background: var(--ink); color: var(--paper); overflow: hidden; }
+  body { display: grid; place-items: center; font: 500 13px/1.4 "Geist Mono", ui-monospace, monospace; letter-spacing: .08em; }
+  #out { width: min(100vw, calc(100vh * 16 / 9)); height: auto; aspect-ratio: 16 / 9; display: block; cursor: pointer; }
+  #ui { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; transition: opacity .35s; }
+  #ui.hidden { opacity: 0; }
+  #ui .play { display: flex; align-items: center; gap: 14px; padding: 14px 22px 14px 16px; border-radius: 999px; background: rgba(14, 14, 16, .72); backdrop-filter: blur(8px); text-transform: uppercase; }
+  #ui .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--coral); }
+  body.render { display: block; }
+  body.render #out { position: fixed; left: 0; top: 0; width: 1920px; height: 1080px; aspect-ratio: auto; }
+  body.render #ui { display: none; }
+</style>
+</head>
+<body>
+<canvas id="out" width="1920" height="1080"></canvas>
+<div id="ui"><div class="play"><span class="dot"></span>Click to play — sound on</div></div>
+<audio id="audio" preload="auto">
+  <source src="audio/soundtrack.m4a" type="audio/mp4">
+  <source src="audio/soundtrack.ogg" type="audio/ogg; codecs=opus">
+</audio>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
